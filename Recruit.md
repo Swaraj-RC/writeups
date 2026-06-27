@@ -1,4 +1,5 @@
-
+# Recruit - Writeup
+> THM RECRUIT LAB
 ---
 # Table of Contents
 
@@ -35,8 +36,6 @@
 
 # Executive Summary
 
-A black-box penetration test was conducted against the Recruit web application to assess its security posture.
-
 The assessment identified multiple vulnerabilities that could be chained together to obtain full administrative access. Initial reconnaissance revealed publicly accessible deployment artifacts, followed by a Local File Inclusion vulnerability that disclosed application configuration files containing HR credentials. A SQL Injection vulnerability then enabled extraction of administrator credentials directly from the backend database.
 
 The demonstrated attack path resulted in complete compromise of the administrative account.
@@ -44,7 +43,7 @@ The demonstrated attack path resulted in complete compromise of the administrati
 | Metric          | Value                   |
 | --------------- | ----------------------- |
 | Assessment Type | Black Box               |
-| Target          | Recruit Web Application |
+| Target          | Recruit THMLAB          |
 | Overall Risk    | Critical                |
 
 ---
@@ -98,7 +97,8 @@ An Nmap scan identified the following services.
 |80|HTTP|Apache 2.4.41|
 
 ### Screenshot
-![[Pasted image 20260627155840.png]]
+<img width="1351" height="541" alt="image" src="https://github.com/user-attachments/assets/a182fc00-c769-48a3-9f18-e225c3240c0a" />
+
 
 ---
 
@@ -114,7 +114,8 @@ The application exposed a public sitemap containing several interesting endpoint
 ```
 
 ### Screenshot
-![[Pasted image 20260627155930.png|605]]
+<img width="842" height="893" alt="image" src="https://github.com/user-attachments/assets/60a21fba-a773-4cc6-bd07-f613b95de55c" />
+
 
 ---
 
@@ -128,7 +129,8 @@ A publicly accessible mail archive disclosed deployment information stating:
     
 
 ### Screenshot
-![[Pasted image 20260627160241.png]]
+<img width="1318" height="846" alt="image" src="https://github.com/user-attachments/assets/45f8302f-6a48-4fc4-a1ac-83e754e87eff" />
+
 
 ---
 
@@ -155,7 +157,8 @@ The disclosed information significantly reduced the effort required during recon
 ```
 
 ### Screenshot
-![[Pasted image 20260627160234.png]]
+<img width="1318" height="846" alt="image" src="https://github.com/user-attachments/assets/41eb2b3a-db07-4654-aeff-f2f2ed7efb8d" />
+
 ## Impact
 
 - Information disclosure
@@ -195,7 +198,8 @@ The file retrieval endpoint failed to validate user-controlled input, allowing d
 The application disclosed the PHP source code of the configuration file.
 
 ### Screenshot
-![[Screenshot 2026-06-27 145847 2.png]]
+<img width="877" height="687" alt="image" src="https://github.com/user-attachments/assets/0013f691-b57a-4c42-97b4-5106ec651f2a" />
+
 
 The configuration contained:
 
@@ -270,7 +274,8 @@ Authentication bypass confirmed.
 ```
 
 ### Screenshot
-![[Pasted image 20260627172416.png]]
+<img width="1737" height="605" alt="image" src="https://github.com/user-attachments/assets/67413dde-53fb-42ee-a603-2190d129eeeb" />
+
 
 ---
 
@@ -286,7 +291,8 @@ Result:
     
 
 ### Screenshot
-![[Pasted image 20260627172500.png]]
+<img width="1752" height="667" alt="image" src="https://github.com/user-attachments/assets/512212cb-5a9e-45c7-beff-570645afcac7" />
+
 
 ---
 
@@ -299,7 +305,7 @@ WHERE table_schema=database()-- -
 ```
 
 ### Screenshot
-![](file:///C:/Users/Swaraj/Downloads/Screenshot%202026-06-27%20172519.png)
+<img width="1657" height="657" alt="Screenshot 2026-06-27 172618" src="https://github.com/user-attachments/assets/1a9394d6-2a1c-4f82-a6e7-8df5f810551c" />
 
 ---
 
@@ -311,7 +317,7 @@ FROM users-- -
 ```
 
 ### Screenshot
-![](file:///C:/Users/Swaraj/Downloads/Screenshot%202026-06-27%20172618.jpg)
+<img width="1787" height="708" alt="Screenshot 2026-06-27 172519" src="https://github.com/user-attachments/assets/501cd86e-c37a-412f-bd40-712d25740e9a" />
 
 ---
 
@@ -403,11 +409,6 @@ Administrator Credential Extraction
 Administrative Login
 ```
 
-### Screenshot
-![[Pasted image 20260627172903.png]]
-
----
-
 # Risk Summary
 
 |ID|Finding|Severity|
@@ -438,8 +439,6 @@ Priority remediation should focus on:
 ---
 
 # Conclusion
-
-The Recruit web application contains multiple vulnerabilities that can be chained together to achieve complete administrative compromise.
 
 The assessment demonstrated a realistic attack path beginning with information disclosure, progressing through Local File Inclusion, and culminating in SQL Injection that enabled extraction of administrator credentials.
 
