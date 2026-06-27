@@ -1,1 +1,1 @@
-# writeups
+A collection of my penetration testing and CTF writeups documenting the process from reconnaissance to exploitation and remediation. I'm using this repository to track my learning, improve my reporting skills, and share practical security assessments.
