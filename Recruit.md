@@ -1,5 +1,5 @@
 # Recruit - Writeup
-> THM RECRUIT LAB
+> [Recruit Web Challenge](https://tryhackme.com/room/recruitwebchallenge)
 ---
 # Table of Contents
 
